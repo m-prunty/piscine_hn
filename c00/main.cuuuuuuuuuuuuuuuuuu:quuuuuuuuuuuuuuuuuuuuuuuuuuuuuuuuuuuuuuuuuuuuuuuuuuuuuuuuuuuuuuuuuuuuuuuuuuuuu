@@ -1,0 +1,92 @@
+//#include "ex00/ft_putchar.c"
+#include "ex01/ft_print_alphabet.c"
+#include "ex02/ft_print_reverse_alphabet.c"
+#include "ex03/ft_print_numbers.c"
+#include "ex04/ft_is_negative.c"
+#include "ex05/ft_print_comb.c"
+#include "ex06/ft_print_comb2.c"
+#include "ex07/ft_putnbr.c"
+#include "ex08/ft_print_combn.c"
+
+
+int main00()
+{
+	write(1, "\nex00:\n\t",8);
+	ft_putchar('a');
+}
+
+int main01()
+{
+	write(1, "\nex01:\n\t",8);
+	ft_print_alphabet();
+}
+
+int main02()
+{
+	write(1, "\nex02:\n\t",8);
+	ft_print_reverse_alphabet();
+}
+
+int main03()
+{
+	write(1, "\nex03:\n\t",8);
+	ft_print_numbers();
+}
+
+int main04()
+{
+	write(1, "\nex04:\n\t",8);
+	ft_is_negative(9);
+	ft_is_negative(0);
+	ft_is_negative(-10);
+	ft_is_negative('-');
+}
+
+int main05()
+{
+	write(1, "\nex05:\n\t",8);
+	ft_print_comb();
+}
+
+int main06()
+{
+	write(1, "\nex06:\n\t",8);
+	ft_print_comb2();
+}
+
+int main07()
+{
+	write(1, "\nex07:\n\t",8);
+	ft_putnbr(~ (1 << 31));
+	ft_putchar('\n');
+	ft_putnbr(1 << 31);
+	ft_putchar('\n');
+	ft_putnbr(42);
+	ft_putchar('\n');
+	ft_putnbr(-10);
+	ft_putchar('\n');
+	ft_putnbr(0);
+	ft_putchar('\n');
+}
+
+int main08()
+{
+	write(1, "\nex08:\n\t",8);
+	ft_print_combn(3);
+	ft_print_combn(4);
+	ft_print_combn(1);
+	ft_print_combn(10);
+}
+
+int main()
+{
+	main00();
+	main01();
+	main02();
+	main03();
+	main04();
+	main05();
+	main06();
+	main07();
+	main08();
+}
