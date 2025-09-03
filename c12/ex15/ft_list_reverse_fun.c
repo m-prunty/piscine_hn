@@ -1,23 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_elem.c                                   :+:      :+:    :+:   */
+/*   ft_list_reverse_fun.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maprunty <maprunty@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/03 01:03:38 by maprunty          #+#    #+#             */
-/*   Updated: 2025/09/03 02:37:15 by maprunty         ###   ########.fr       */
+/*   Created: 2025/09/03 02:07:01 by maprunty          #+#    #+#             */
+/*   Updated: 2025/09/03 02:47:46 by maprunty         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_list.h"
-
-t_list	*ft_create_elem(void *data)
-{
-	t_list	*lst;
-
-	lst = (t_list *)malloc(sizeof(t_list));
-	lst->next = NULL;
-	lst->data = data;
-	return (lst);
-}

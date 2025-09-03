@@ -6,9 +6,12 @@
 /*   By: maprunty <maprunty@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 17:01:12 by maprunty          #+#    #+#             */
-/*   Updated: 2025/09/02 17:10:57 by maprunty         ###   ########.fr       */
+/*   Updated: 2025/09/03 02:13:46 by maprunty         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdlib.h>
+#include "includes/ft.h"
 
 typedef struct s_list
 {

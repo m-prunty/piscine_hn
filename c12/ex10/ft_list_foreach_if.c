@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_elem.c                                   :+:      :+:    :+:   */
+/*   ft_list_foreach_if.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maprunty <maprunty@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/03 01:03:38 by maprunty          #+#    #+#             */
-/*   Updated: 2025/09/03 02:37:15 by maprunty         ###   ########.fr       */
+/*   Created: 2025/09/03 02:03:15 by maprunty          #+#    #+#             */
+/*   Updated: 2025/09/03 02:42:28 by maprunty         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_list.h"
 
-t_list	*ft_create_elem(void *data)
+void	ft_list_foreach_if(t_list *begin_list, void (*f)(void *),
+						void *data_ref, int (*cmp)(char *, char *))
 {
-	t_list	*lst;
-
-	lst = (t_list *)malloc(sizeof(t_list));
-	lst->next = NULL;
-	lst->data = data;
-	return (lst);
+	if (begin_list && begin_list->data)
+	{
+		if (!cmp(begin_list->data, data_ref))
+			f(begin_list->data);
+		ft_list_foreach_if(begin_list->next, f, data_ref, cmp);
+	}
 }

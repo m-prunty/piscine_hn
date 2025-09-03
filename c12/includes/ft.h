@@ -6,7 +6,7 @@
 /*   By: maprunty <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 05:14:19 by maprunty          #+#    #+#             */
-/*   Updated: 2025/08/20 05:40:11 by maprunty         ###   ########.fr       */
+/*   Updated: 2025/09/03 02:14:35 by maprunty         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ int		ft_strlen(char *str);
 int		ft_strcmp(char *s1, char *s2);
 int		ft_atoi(char *str);
 void	ft_putnum(int c);
-void	ft_putnbr(int nb);
+void	ft_putnbr(int c);
 
 #endif

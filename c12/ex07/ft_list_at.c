@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_elem.c                                   :+:      :+:    :+:   */
+/*   ft_list_at.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maprunty <maprunty@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/03 01:03:38 by maprunty          #+#    #+#             */
-/*   Updated: 2025/09/03 02:37:15 by maprunty         ###   ########.fr       */
+/*   Created: 2025/09/03 01:47:10 by maprunty          #+#    #+#             */
+/*   Updated: 2025/09/03 02:40:42 by maprunty         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_list.h"
 
-t_list	*ft_create_elem(void *data)
+t_list	*ft_list_at(t_list *begin_list, unsigned int nbr)
 {
-	t_list	*lst;
+	unsigned int	i;
 
-	lst = (t_list *)malloc(sizeof(t_list));
-	lst->next = NULL;
-	lst->data = data;
-	return (lst);
+	i = 0;
+	while (i < nbr)
+	{
+		if (!begin_list)
+			return (NULL);
+		begin_list = begin_list->next;
+		++i;
+	}
+	return (begin_list);
 }
