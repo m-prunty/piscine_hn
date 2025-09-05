@@ -6,19 +6,14 @@
 /*   By: maprunty <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 04:01:33 by maprunty          #+#    #+#             */
-/*   Updated: 2025/08/20 21:20:00 by maprunty         ###   ########.fr       */
+/*   Updated: 2025/09/03 03:54:47 by maprunty         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
-{
-	int	i;
+#include <stdlib.h>
 
-	i = 0;
-	while (*str++)
-		i++;
-	return (i);
-}
+int		ft_strlen(char *str);
+void	ft_putchar_str(char c, char **str);
 
 int	ft_isvalid_base(char *base)
 {
@@ -88,15 +83,6 @@ int	ft_atoi_base(char *str, char *base)
 	return (res * neg);
 }
 
-void	ft_putchar_str(char c, char *str)
-{
-	//str;
-	//while (*++str)
-	//	;
-	*++str = c;
-	*str = '\0';
-}
-
 void	ft_putnbr_base_s(int nbr, char *base, char **str)
 {
 	long	lnb;
@@ -109,16 +95,20 @@ void	ft_putnbr_base_s(int nbr, char *base, char **str)
 		{
 			lnb = ~(long)(1 << 31) + 1;
 			ft_putnbr_base_s(-lnb / base_len, base, str);
-			ft_putchar_str(base[lnb % base_len], *str);
+			ft_putchar_str(base[lnb % base_len], str);
 		}
 		else if (nbr < 0)
 		{
-			ft_putchar_str('-', *str);
+			ft_putchar_str('-', str);
 			ft_putnbr_base_s(-nbr, base, str);
 		}
 		else if (nbr >= base_len)
+		{
 			ft_putnbr_base_s(nbr / base_len, base, str);
-		ft_putchar_str(base[nbr % base_len], *str);
+			ft_putchar_str(base[nbr % base_len], str);
+		}
+		else
+			ft_putchar_str(base[nbr % base_len], str);
 	}
 }
 
@@ -126,9 +116,9 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
 	char	*str;
 	int		decimal;
-	char 	*s;
+	char	*s;
 
-	str = (char *)malloc(sizeof(char *) * 32);
+	str = (char *)malloc(sizeof(char) * 32);
 	s = str;
 	if (ft_isvalid_base(base_from) && ft_isvalid_base(base_to))
 	{
@@ -138,3 +128,13 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	}
 	return (NULL);
 }
+/*
+int main ()
+{
+	printf("\n%s",ft_convert_base("42", "0123456789", "01"));
+	printf("\n%s",ft_convert_base("-42", "0123456789", "01"));
+	printf("\n%s",ft_convert_base("101010", "01", "0123456789ABCDEF"));
+	printf("\n%s",ft_convert_base("42", "01234567899", "01"));
+	printf("\n%s",ft_convert_base("42", "01234567899", "5"));
+}
+*/

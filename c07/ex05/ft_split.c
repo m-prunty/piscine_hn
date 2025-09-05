@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+
 char	*ft_strncpy(char *dest, char *src, int n)
 {
 	char	*res;
@@ -61,28 +63,23 @@ int	count_words(char *str, char *charset)
 char	**ft_split(char *str, char *charset)
 {
 	char	**res;
-	int		n;
-	int		i;
+	char	**ptr;
 	int		j;
 
-	i = -1;
-	n = count_words(str, charset);
-	res = (char **)malloc(sizeof(char *) * n);
-	if (!charset)
-		*res = str;
+	res = (char **)malloc(sizeof(char *) * (count_words(str, charset) + 1));
+	ptr = res;
+	if (!str || !res)
+		return (NULL);
 	else
 	{
 		while (*str)
 		{
 			while (in_charset(*str, charset))
 				str++;
-			if (*str)
-				i++;
 			j = 0;
 			while (!in_charset(*str, charset) && *str && ++j)
 				str++;
-			if (i < n && !res[i])
-				res[i] = ft_strndup((str - j), j);
+			*ptr++ = ft_strndup((str - j), j);
 		}
 	}
 	return (res);
@@ -92,15 +89,25 @@ char	**ft_split(char *str, char *charset)
 #include <stdio.h>
 int main()
 {
+char *word = "sadaf";
 char *str = "     sadaf qweq    qweqwe    w";
 char *str1 = "i     sadaf   qweq    qweqwe    ";
-char **s;
 char **s1;
+char **s2;
+char **s3;
+char **s4;
+char **s5;
 
-s = ft_split(str, " ");
-s1 = ft_split(str1, " ");
-//printf("%i", count_words(str, " "));
+s1 = ft_split("", "");
+s2 = ft_split("hello", "");
+s3 = ft_split(",,hello,world,,", ",");
+s4 = ft_split("hello,,,,world", ",");
+s5 = ft_split("aaabbbaaaccc", "ab");
+w1 = ft_split(word, "");
+s1 = ft_split(str, " ");
+s2 = ft_split(str1, " ");
+	//printf("%i", count_words(str, " "));
 //printf("%i", count_words(str1, " "));
+}
 
-}*/
-
+*/
